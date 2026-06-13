@@ -1,0 +1,18 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Equipamento {
+  id           Int      @id @default(autoincrement())
+  nome         String
+  descricao    String
+  imagemUrl    String?
+  criadoEm     DateTime @default(now())
+  atualizadoEm DateTime @updatedAt
+}
